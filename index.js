@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 // Importing Node modules and initializing Express
 const express = require('express'),
     app = express(),
@@ -12,11 +13,10 @@ router = require('./router'),
     config = require('./config/main');
 
 // Database Setup
-if (process.ENV.database) {
-    mongoose.connect(process.ENV.database);
-}
-else {
-    mongoose.connect(config.database)
+if (process.env.DATABASE) {
+    mongoose.connect(process.env.DATABASE);
+} else {
+    mongoose.connect(config.database);
 }
 
 // Start the server
