@@ -129,25 +129,6 @@ exports.newConversation = function (req, res, next) {
     return next();
   }
 
-  const conversationExists = Conversation.findById()
-    .where('participants')
-    .gte([req.user_id, req.params.recipient]);
-  if (conversationExists) {
-    const reply = new Message({
-      conversationId: req.params.conversationExists._id,
-      body: req.body.composedMessage,
-      author: req.user._id
-    });
-    reply.save((err, sentReply) => {
-      if (err) {
-        res.send({ error: err });
-        return next(err);
-      }
-    });
-    return res.status(200)
-      .json({ message: 'Conversation exists!', conversationId: conversationExists._id });
-  }
-
   const conversation = new Conversation({
     participants: [req.user._id, req.params.recipient]
   });
