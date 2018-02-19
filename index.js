@@ -6,8 +6,8 @@ const express = require('express'),
     logger = require('morgan'),
     cors = require('cors'),
     helmet = require('helmet'),
-    // express_enforces_ssl = require('express-enforces-ssl');
-    router = require('./router'),
+   // express_enforces_ssl = require('express-enforces-ssl');
+router = require('./router'),
     mongoose = require('mongoose'),
     socketEvents = require('./socketEvents'),
     config = require('./config/main');
@@ -42,7 +42,7 @@ app.use(bodyParser.json()); // Send JSON responses
 app.use(logger('dev')); // Log requests to API using morgan
 
 const corsOptions = {
-    origin: 'https://thundering-advice.surge.sh',
+    origin: 'http://localhost:8080',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
