@@ -2,7 +2,7 @@ module.exports = {
   // Secret key for JWT signing and encryption
   secret: 'super secret passphrase',
   // Database connection information
-  database: 'mongodb://teodordev:cryptochat@ds235388.mlab.com:35388/cryptochatdb',
+  database: '',
   // Setting port for server
   port: 3000,
   // Configuring Mailgun API for sending transactional email
